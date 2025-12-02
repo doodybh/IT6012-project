@@ -968,6 +968,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', () => {
         const query = searchInput.value.trim();
         suggestionsList.innerHTML = '';
+        suggestionsList.style.display = query ? 'block' : 'none';
 
         if (!query) {
             doctorCards.forEach(card => {
@@ -994,13 +995,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const li = document.createElement('li');
             li.className = 'list-group-item list-group-item-action';
-            li.innerHTML = `
-                <img src="${imgSrc}" alt="${name}" style="width:30px; height:30px; object-fit:cover; margin-right:8px; vertical-align:middle;">
-                <span>${name}</span>
-            `;
+            li.textContent = name;
             li.addEventListener('click', () => {
                 searchInput.value = name;
                 suggestionsList.innerHTML = '';
+
 
                 doctorCards.forEach(card => {
                     const parentCol = card.closest('.col-12');
