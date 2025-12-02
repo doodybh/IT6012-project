@@ -61,6 +61,13 @@ body {
     transition: 0.3s;
 }
 
+/* testing new nav bar functionalitiy */
+
+.nav-links button.active {
+    font-weight: bold;
+    border-bottom: 4px solid #ffffff;
+}
+
 .nav-links button:hover {
     color: #d1f7ff;
 }
@@ -69,6 +76,8 @@ body {
     font-weight: bold;
     color: #d1f7ff;
 }
+
+
 
 /* --- New Additions for Search Bar --- */
 .search-wrapper {
