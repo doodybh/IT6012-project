@@ -723,7 +723,8 @@ body {
 }
 
 .cart-button {
-    position: relative;
+    position: fixed;
+    right: 20px;
     background-color: #007b9e;
     border: none;
     color: white;
@@ -755,9 +756,9 @@ body {
 }
 
 .cart-panel {
-    position: absolute;
-    top: 45px;
-    right: 0;
+    position: fixed;
+    top: 150px;
+    right: 5px;
     width: 320px;
     background: #fff;
     border: 1px solid #ddd;
