@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicines - Health Portal</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+<!-- External CSS -->
+<link rel="stylesheet" href="style.css">
+<!-- External JS -->
+<script defer src="script.js"></script>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar-custom d-flex justify-content-between align-items-center">
+
+    <!-- LEFT: TITLE -->
+    <div class="nav-title">
+        Health Portal <span id="userGreeting"></span>
+    </div>
+
+    <!-- RIGHT: BUTTONS then SEARCH BAR -->
+    <div class="d-flex align-items-center" style="gap: 15px;">
+
+        <!-- Buttons on the left -->
+        <div class="nav-links d-flex align-items-center" style="gap: 10px;">
+            <button onclick="location.href='index.html'">Home</button>
+            <button onclick="location.href='physical-mental-health.html'">Physical & Mental Health</button>
+            <button onclick="location.href='appointments.html'">Book Appointments</button>
+            <button class="active">Medicine</button>
+            <button onclick="location.href='our-story.html'">Our Story</button>
+            <button onclick="location.href='making-of.html'">Making of</button>
+        </div>
+
+        <!-- Search bar on the right -->
+        <div style="position: relative;">
+            <input type="text" id="medicineSearch"
+                   placeholder="Search medicine..."
+                   class="form-control form-control-sm"
+                   style="width: 180px;">
+            <ul id="medicineSuggestions" class="suggestions-box"></ul>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- DROPDOWN CART -->
+<div id="cartContainer">
+    <button id="cartToggle" class="cart-button">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cartCount">0</span>
+    </button>
+
+    <div id="cartPanel" class="cart-panel">
+        <h5>Shopping Cart</h5>
+        <ul id="cartItems">
+            <!-- Items dynamically added here -->
+        </ul>
+        <div class="cart-total">
+            <strong>Total: $<span id="cartTotal">0.00</span></strong>
+        </div>
+        <button id="checkoutButton" class="btn btn-success w-100">Checkout</button>
+    </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+    <h1>Medicines & Treatments</h1>
+    <p>Explore our available medicines and order them for delivery.</p>
+</div>
+
+<!-- CONTENT SECTION -->
+<div class="container my-5">
+    <div class="row g-4">
+
+        <!-- Card 1: Panadol Extra -->
+        <div class="col-md-4">
+            <div class="card medicine-card h-100 shadow-sm" data-name="Panadol Extra">
+                <img src="images/panadol.jpg" class="card-img-top" alt="Panadol Extra">
+                <div class="card-body">
+                    <h5 class="card-title">Panadol Extra</h5>
+                    <p><strong>Treats:</strong> Headache, fever, muscle pain.</p>
+                    <p><strong>Description:</strong> A fast-acting pain reliever for mild to moderate pain.</p>
+
+                    <!-- Quantity input -->
+                    <div class="mb-2">
+                        <label for="qtyPanadolExtra">Quantity:</label>
+                        <input type="number" id="qtyPanadolExtra" class="form-control" value="1" min="1" style="width:80px;">
+                    </div>
+
+                    <!-- Add to Cart button -->
+                    <button class="btn btn-primary" onclick="addCardToCart('Panadol Extra', 'qtyPanadolExtra', 'images/panadol.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Augmentin 625mg -->
+        <div class="col-md-4">
+            <div class="card medicine-card h-100 shadow-sm" data-name="Augmentin 625mg">
+                <img src="images/augmentin.jpg" class="card-img-top" alt="Augmentin 625mg">
+                <div class="card-body">
+                    <h5 class="card-title">Augmentin 625mg</h5>
+                    <p><strong>Treats:</strong> Infections, sinusitis, pneumonia, UTIs.</p>
+                    <p><strong>Description:</strong> A powerful antibiotic requiring a prescription.</p>
+
+                    <!-- Quantity input -->
+                    <div class="mb-2">
+                        <label for="qtyAugmentin">Quantity:</label>
+                        <input type="number" id="qtyAugmentin" class="form-control" value="1" min="1" style="width:80px;">
+                    </div>
+
+                    <!-- Add to Cart button -->
+                    <button class="btn btn-primary" onclick="addCardToCart('Augmentin 625mg', 'qtyAugmentin', 'images/augmentin.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Claritin -->
+        <div class="col-md-4">
+            <div class="card medicine-card h-100 shadow-sm" data-name="Claritin">
+                <img src="images/claritin.avif" class="card-img-top" alt="Claritin">
+                <div class="card-body">
+                    <h5 class="card-title">Claritin</h5>
+                    <p><strong>Treats:</strong> Allergies, sneezing, itchy eyes.</p>
+                    <p><strong>Description:</strong> A non-drowsy antihistamine offering 24-hour allergy relief.</p>
+
+                    <!-- Quantity input -->
+                    <div class="mb-2">
+                        <label for="qtyClaritin">Quantity:</label>
+                        <input type="number" id="qtyClaritin" class="form-control" value="1" min="1" style="width:80px;">
+                    </div>
+
+                    <!-- Add to Cart button -->
+                    <button class="btn btn-primary" onclick="addCardToCart('Claritin', 'qtyClaritin', 'images/claritin.avif')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

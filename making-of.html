@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Making of - Design Justifications</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<script src="script.js"></script>
+
+<body class="making-of-page">
+
+
+    <div class="navbar-custom d-flex justify-content-between align-items-center">
+
+        <div class="nav-title">
+            Health Portal <span id="userGreeting"></span>
+        </div>
+
+        <div class="d-flex align-items-center nav-right-group">
+
+            <div class="nav-links d-flex align-items-center">
+                <button onclick="location.href='index.html'">Home</button>
+                <button onclick="location.href='physical-mental-health.html'">Physical & Mental Health</button>
+                <button onclick="location.href='appointments.html'">Book Appointments</button>
+                <button onclick="location.href='medicines.html'">Medicine</button>
+                <button onclick="location.href='our-story.html'">Our Story</button>
+                <button class="active" onclick="location.href='making-of.html'">Making of</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <header class="page-header">
+        <h1>Project Documentation: The Making Of</h1>
+        <p class="lead">Mock-ups and Justifications for Design and Code Decisions.</p>
+    </header>
+
+    <div class="container my-5">
+
+        <section class="mb-5">
+            <h2 class="text-center mb-4 section-title-custom"><b>1. Wireframes and Mock-ups</b></h2>
+            <p class="text-center text-muted mb-5">The following images represent the initial low-fidelity wireframes
+                that guided our team during the development process, ensuring consistency across all major pages.</p>
+
+            <div class="row wireframe-gallery">
+                <div class="col-md-4 mb-4">
+                    <div class="wireframe-card card h-100 shadow-sm">
+                        <img src="images/Home page.png" class="card-img-top" alt="Home Page Wireframe">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><b>Home Page</b></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="wireframe-card card h-100 shadow-sm">
+                        <img src="images/Doctores page .png" class="card-img-top" alt="Doctors Page Wireframe">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><b>Appointments Page</b></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="wireframe-card card h-100 shadow-sm">
+                        <img src="images/Medicine page.png" class="card-img-top" alt="Medicine Page Wireframe">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><b>Medicine Page</b></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="wireframe-card card h-100 shadow-sm">
+                        <img src="images/Our story page .png" class="card-img-top" alt="Our Story Page Wireframe">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><b>Our Story Page</b></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="wireframe-card card h-100 shadow-sm">
+                        <img src="images/Making of page .png" class="card-img-top" alt="Making of Page Wireframe">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><b>Making of Page</b></h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="mb-5">
+            <h2 class="text-center mb-5 section-title-custom"><b>2. Design and Code Justifications</b></h2>
+
+            <div class="row align-items-center mb-5 making-of-card">
+                <div class="col-md-6">
+                    <div class="justification-card card shadow-lg p-4 h-100">
+                        <h3 class="card-title text-primary-custom mb-3"><b>Impact of Design and Choice of Colors on
+                                Delivered Content</b></h3>
+                        <p>The chosen color palette focuses on blue (#007b9e) and its variations, which is commonly
+                            associated with trust, stability, and health in the medical field. This choice was
+                            deliberate to reinforce the website’s purpose as a trustworthy Health Portal.</p>
+                        <ul>
+                            <li>
+                                <p><b>Blue/Teal Tones:</b> Used for headers, navigation, and primary call-to-action
+                                    buttons (e.g., Book Appointment). This ensures crucial interactive elements stand
+                                    out and convey professionalism.</p>
+                            </li>
+                            <li>
+                                <p><b>White/Light Blue Backgrounds:</b> The light background (#e9f5f9 and #f0f9ff)
+                                    maximizes content legibility and reduces eye strain, which is vital for pages
+                                    containing medical information or detailed articles.</p>
+                            </li>
+                            <li>
+                                <p><b>Font Choice:</b> A clear, sans-serif font (Arial/Helvetica) was selected to
+                                    optimize readability across all devices, ensuring the delivered medical and health
+                                    content is easily consumed by all users.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="justification-card card shadow-lg p-4 h-100">
+                        <h3 class="card-title text-primary-custom mb-3"><b>Impact of HTML, CSS, JS, and Bootstrap Code
+                                on Maintainability of Website</b></h3>
+                        <p>Our coding structure prioritized clarity, modularity, and adherence to best practices to
+                            ensure the website is easy to maintain and scale for future development:</p>
+                        <ul>
+                            <li>
+                                <p><b>CSS Structure:</b> The external `Style.css` file uses clear <b>comment
+                                        dividers</b> to organize styles by section (e.g., NAVBAR, DOCTOR CARDS, PAGE
+                                    HEADERS). This modular approach makes it quick for any developer to locate and
+                                    modify specific styling rules.</p>
+                            </li>
+                            <li>
+                                <p><b>Bootstrap Integration:</b> Using Bootstrap (CSS and JS bundle) allowed for rapid
+                                    development of responsive components (Grid system, Navbar, Modals) and ensures
+                                    consistent cross-browser compatibility with minimal custom CSS.</p>
+                            </li>
+                            <li>
+                                <p><b>HTML/JS Separation:</b> Functional logic is strictly placed in separate JavaScript
+                                    files, keeping the HTML clean and focusing on semantic structure. Event handlers
+                                    (`onclick`) are used directly on elements for simplicity in this project scope.</p>
+                            </li>
+                            <li>
+                                <p><b>Naming Conventions:</b> Classes (e.g., <code>.navbar-custom</code>,
+                                    <code>.info-card</code>, <code>.doctor-card</code>) are named clearly and
+                                    consistently to reflect their function, greatly improving code readability.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- IMAGE VIEWER (POPUP) -->
+    <div id="imageViewer" class="image-viewer">
+        <img id="viewerImg" src="" alt="">
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Portal</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!--JS -->
+    <script defer src="script.js"></script>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar-custom d-flex justify-content-between align-items-center">
+
+        <div class="nav-title">
+            Health Portal <span id="userGreeting"></span>
+        </div>
+
+        <div class="d-flex align-items-center" style="gap: 15px;">
+
+            <div class="nav-links d-flex align-items-center" style="gap: 10px;">
+                <button class="active" onclick="location.href='index.html'">Home</button>
+                <button onclick="location.href='physical-mental-health.html'">Physical & Mental Health</button>
+                <button onclick="location.href='appointments.html'">Book Appointments</button>
+                <button onclick="location.href='medicines.html'">Medicine</button>
+                <button onclick="location.href='our-story.html'">Our Story</button>
+                <button onclick="location.href='making-of.html'"> Making of</button>
+            </div>
+
+            <button class="signin-btn btn btn-sm btn-outline-light" onclick="openSignIn()">Sign In</button>
+
+        </div>
+
+    </div>
+
+    <!-- CAROUSEL -->
+    <div id="mainCarousel" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/Physical.avif" class="d-block w-100" alt="Physical Health">
+                <div class="carousel-caption">
+                    <h5>Physical Health</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/Mental.avif" class="d-block w-100" alt="Mental Health">
+                <div class="carousel-caption">
+                    <h5>Mental Health</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/Med2.jpg" class="d-block w-100" alt="Medicines">
+                <div class="carousel-caption">
+                    <h5>Medicine</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE CONTENT -->
+    <div id="content" class="page"></div>
+
+    <!-- SIGN-IN MODAL -->
+    <div id="modal" class="modal-bg">
+        <div class="modal-box">
+            <h2 class="modal-title">Sign In</h2>
+
+            <div id="errorMessage" class="error-box"></div>
+            <div id="successMessage" class="success-box"></div>
+
+            <form id="signInForm" novalidate>
+                <div class="mb-3">
+                    <input type="text" id="firstName" placeholder="First Name" class="form-control" required
+                        pattern="^[A-Za-z\s'-]{3,}$">
+                    <div class="invalid-feedback">First Name should be at least 3 letters (e.g., John).</div>
+                </div>
+
+                <div class="mb-3">
+                    <input type="text" id="lastName" placeholder="Last Name" class="form-control" required
+                        pattern="^[A-Za-z\s'-]{3,}$">
+                    <div class="invalid-feedback">Last Name should be at least 3 letters (e.g., Smith).</div>
+                </div>
+
+                <div class="mb-3">
+                    <input type="text" id="phoneNumber" placeholder="Phone Number (8 digits)" class="form-control"
+                        required pattern="^[0-9]{8}$">
+                    <div class="invalid-feedback">Phone Number should be exactly 8 digits (e.g., 12345678).</div>
+                </div>
+
+                <div class="mb-3">
+                    <input type="email" id="email" placeholder="Email" class="form-control" required
+                        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+                    <div class="invalid-feedback">Email should be a valid email address (e.g., example@mail.com).</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-2" disabled>Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Floating Icons -->
+    <div class="floating-icons">
+        <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:contact@healthportal.com" class="email"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <!-- OVERVIEW - Modified for Left-Alignment and Headings -->
+    <div id="overview" class="container-fluid py-5 bg-light-blue-custom">
+        <div class="row justify-content-center">
+            <!-- Removed text-center class to allow left-alignment -->
+            <div class="col-lg-10 overview-content-wrapper">
+                <h2 class="display-5 fw-bold mb-5" style="color: #004d66;">Your Comprehensive Health Journey Starts Here
+                </h2>
+
+                <!-- Segment 1: Digital Companion -->
+                <h3 class="overview-heading">Seamless Digital Health Management</h3>
+                <p class="overview-large-text mb-4">
+                    Health Portal is your trusted digital companion designed to simplify the way you manage your health.
+                    We provide essential tools and services that help you stay informed, proactive, and connected in
+                    every stage of your well-being. Our platform is intuitive and accessible, ensuring that managing
+                    your and your family's healthcare is effortless and secure, offering peace of mind 24/7.
+                </p>
+
+                <!-- Segment 2: Evidence-Based Information -->
+                <h3 class="overview-heading">Trusted, Evidence-Based Medical Information</h3>
+                <p class="overview-large-text mb-4">
+                    Explore accurate and evidence-based medical information covering a wide spectrum of physical and
+                    mental health conditions. Our content is regularly reviewed by certified medical professionals. Our
+                    goal is to empower you with reliable knowledge to make confident, informed decisions about symptoms,
+                    treatments, and lifestyle changes, filtering out the noise of unreliable sources.
+                </p>
+
+                <!-- Segment 3: Appointment Booking -->
+                <h3 class="overview-heading">Quick and Convenient Appointment Booking</h3>
+                <p class="overview-large-text mb-4">
+                    Book appointments seamlessly with certified doctors and specialists across various fields. Whether
+                    you need routine checkups or expert medical attention, scheduling a consultation is fast and
+                    convenient through our integrated system. Real-time availability allows you to choose the perfect
+                    time slot with your preferred healthcare provider.
+                </p>
+
+                <!-- Segment 4: Online Pharmacy -->
+                <h3 class="overview-heading">Secure Online Pharmacy and Home Delivery</h3>
+                <p class="overview-large-text mb-4">
+                    Access a secure online pharmacy offering essential medications and health products. Order easily and
+                    enjoy fast and safe home delivery straight to your doorstep. We ensure the authenticity and quality
+                    of all products, adhering strictly to global pharmaceutical standards for your safety and
+                    convenience.
+                </p>
+
+                <div class="mt-5 pt-3">
+                    <a href="physical-mental-health.html"
+                        class="btn btn-lg btn-outline-primary me-3 custom-btn-outline">Explore Diseases & Conditions</a>
+                    <a href="appointments.html" class="btn btn-lg btn-primary custom-btn-primary shadow-lg">Book Your
+                        Consultation Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUSTOMER REVIEWS / TESTIMONIALS SECTION -->
+    <div id="testimonials" class="container py-5">
+        <h2 class="text-center display-6 fw-bold mb-5" style="color: #004d66;"><i class="fas fa-quote-left me-2"></i>
+            What Our Patients Say</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Testimonial Card 1 -->
+            <div class="col">
+                <div class="card testimonial-card h-100 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text review-text">"The booking system is incredibly simple and efficient. I was
+                            able to find a specialist and schedule my appointment within minutes. The follow-up care was
+                            exceptional."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <i class="fas fa-user-circle fa-2x me-3 text-primary-custom"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Amna Al-Fadhel</h6>
+                                <p class="small text-muted mb-0">Routine Checkup</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial Card 2 -->
+            <div class="col">
+                <div class="card testimonial-card h-100 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text review-text">"I rely on the Health Portal for accurate information. The
+                            articles are easy to understand and provide genuine, evidence-based advice, which is hard to
+                            find online."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <i class="fas fa-user-circle fa-2x me-3 text-primary-custom"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Mohammed Jaber</h6>
+                                <p class="small text-muted mb-0">Health Information Seeker</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial Card 3 -->
+            <div class="col">
+                <div class="card testimonial-card h-100 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text review-text">"The pharmacy service is a game-changer. Ordering repeat
+                            prescriptions is seamless, and the delivery is always fast and discreet. Highly recommend
+                            this service."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <i class="fas fa-user-circle fa-2x me-3 text-primary-custom"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Sarah Williams</h6>
+                                <p class="small text-muted mb-0">Online Pharmacy User</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial Card 4 -->
+            <div class="col">
+                <div class="card testimonial-card h-100 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text review-text">"My experience with the mental health specialist booked through
+                            the portal was transformative. A huge step forward in integrated healthcare provision."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <i class="fas fa-user-circle fa-2x me-3 text-primary-custom"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Khalid Al-Rumaihi</h6>
+                                <p class="small text-muted mb-0">Mental Health Consultation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial Card 5 -->
+            <div class="col">
+                <div class="card testimonial-card h-100 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text review-text">"The doctors are world-class and professional. I appreciate the
+                            clarity and detail in the appointment summaries provided through the portal."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <i class="fas fa-user-circle fa-2x me-3 text-primary-custom"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Fatima Haider</h6>
+                                <p class="small text-muted mb-0">Expert Medical Advice</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial Card 6 -->
+            <div class="col">
+                <div class="card testimonial-card h-100 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text review-text">"The platform is perfectly optimized for mobile. Managing my
+                            family's physical health needs on the go has never been this easy and reliable."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <i class="fas fa-user-circle fa-2x me-3 text-primary-custom"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Yousef Mahmood</h6>
+                                <p class="small text-muted mb-0">Mobile User Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACHIEVEMENTS AND AWARDS SECTION -->
+    <div id="achievements" class="container-fluid py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h2 class="display-5 fw-bold mb-4" style="color: #004d66;">Excellence Recognized: Our Awards and
+                    Milestones</h2>
+                <p class="lead text-muted mb-5">A testament to our unwavering commitment to world-class healthcare,
+                    innovation, and patient safety, setting new benchmarks in the region.</p>
+
+                <div class="row g-4">
+                    <!-- Achievement 1 -->
+                    <div class="col-md-4">
+                        <div class="p-4 bg-white rounded-3 shadow-sm achievement-box h-100">
+                            <i class="fas fa-trophy fa-3x mb-3 text-primary-custom"></i>
+                            <h4 class="fw-bold" style="color: #004d66;">Patient Safety Gold Award</h4>
+                            <p class="mb-0 text-secondary-custom">Awarded for achieving zero preventable adverse events
+                                for five consecutive years, reflecting our strict adherence to the highest international
+                                safety standards.</p>
+                        </div>
+                    </div>
+                    <!-- Achievement 2 -->
+                    <div class="col-md-4">
+                        <div class="p-4 bg-white rounded-3 shadow-sm achievement-box h-100">
+                            <i class="fas fa-flask-vial fa-3x mb-3 text-primary-custom"></i>
+                            <h4 class="fw-bold" style="color: #004d66;">Innovator in Digital Health</h4>
+                            <p class="mb-0 text-secondary-custom">Recognized as the leading digital health platform in
+                                the region for our secure, integrated telemedicine services and groundbreaking health
+                                informatics.</p>
+                        </div>
+                    </div>
+                    <!-- Achievement 3 -->
+                    <div class="col-md-4">
+                        <div class="p-4 bg-white rounded-3 shadow-sm achievement-box h-100">
+                            <i class="fas fa-hands-holding-child fa-3x mb-3 text-primary-custom"></i>
+                            <h4 class="fw-bold" style="color: #004d66;">Community Health Champion</h4>
+                            <p class="mb-0 text-secondary-custom">Received this prestigious award for our extensive
+                                outreach programs focusing on mental well-being and chronic disease prevention across
+                                local communities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOCTOR SECTION -->
+    <div class="container my-5 py-3">
+        <h2 class="text-center mb-5" style="color: #004d66;">
+            <i class="fas fa-user-md me-2"></i> Meet Our Featured Specialists
+        </h2>
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="doctor-card shadow h-100 d-flex flex-column">
+                    <div class="doctor-img-wrapper">
+                        <img src="images/Doc1.webp" class="img-fluid" alt="Dr. Jack Smith">
+                    </div>
+                    <div class="doctor-info p-3 flex-grow-1 d-flex flex-column">
+                        <h5>Dr. Jack Smith</h5>
+                        <p class="text-muted mb-1">Cardiologist Specialist</p>
+                        <p class="flex-grow-1">20 years of expertise in preventive care, heart health, and
+                            cardiovascular disease management. Certified by the American Board of Cardiology.</p>
+                        <button onclick="location.href='appointments.html?doctor=Dr.%20Jack%20Smith'"
+                            class="btn btn-sm btn-primary">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="doctor-card shadow h-100 d-flex flex-column">
+                    <div class="doctor-img-wrapper">
+                        <img src="images/Doc2.jpg" class="img-fluid" alt="Dr. John Doe">
+                    </div>
+                    <div class="doctor-info p-3 flex-grow-1 d-flex flex-column">
+                        <h5>Dr. John Doe</h5>
+                        <p class="text-muted mb-1">Mental Health Psychiatrist</p>
+                        <p class="flex-grow-1">Expert in anxiety, depression, and stress management using cognitive
+                            behavioral therapy. Published researcher in neurobiology.</p>
+                        <button onclick="location.href='appointments.html?doctor=Dr.%20John%20Doe'"
+                            class="btn btn-sm btn-primary">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="doctor-card shadow h-100 d-flex flex-column">
+                    <div class="doctor-img-wrapper">
+                        <img src="images/Doc3.jpg" class="img-fluid" alt="Dr. Alex Lee">
+                    </div>
+                    <div class="doctor-info p-3 flex-grow-1 d-flex flex-column">
+                        <h5>Dr. Alex Lee</h5>
+                        <p class="text-muted mb-1">Endocrinology Specialist</p>
+                        <p class="flex-grow-1">Focuses on diabetes, thyroid disorders, and hormonal imbalances,
+                            providing personalized treatment plans for optimal results. 18 years experience.</p>
+                        <button onclick="location.href='appointments.html?doctor=Dr.%20Alex%20Lee'"
+                            class="btn btn-sm btn-primary">Book Appointment</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- MAP -->
+        <div class="container-fluid my-5 pb-5 px-0">
+            <h2 class="text-center mb-4" style="color: #004d66;"><i class="fas fa-location-dot me-2"></i> Visit Our
+                Health
+                Center (Awali, Bahrain)</h2>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115167.33083063548!2d50.51351586542752!3d26.06815340058763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e498c09d7010e9f%3a0xc66699e3a64016f9!2sAwali%2C%20Bahrain!5e0!3m2!1sen!2sbh!4v1700000000000!5m2!1sen!2sbh"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+</body>
+
+</html>

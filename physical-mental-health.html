@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical & Mental Health</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <script defer src="script.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="navbar-custom d-flex justify-content-between align-items-center">
+
+        <div class="nav-title">
+            Health Portal <span id="userGreeting"></span>
+        </div>
+
+        <div class="d-flex align-items-center nav-right-group">
+
+            <div class="nav-links d-flex align-items-center">
+                <button onclick="location.href='index.html'">Home</button>
+                <button class="active">Physical & Mental Health</button>
+                <button onclick="location.href='appointments.html'">Book Appointments</button>
+                <button onclick="location.href='medicines.html'">Medicine</button>
+                <button onclick="location.href='our-story.html'">Our Story</button>
+                <button onclick="location.href='making-of.html'">Making of</button>
+            </div>
+
+            <div class="search-wrapper">
+                <input type="text" id="healthSearch" placeholder="Search Health Problems..."
+                    class="form-control form-control-sm">
+                <ul id="searchSuggestions" class="suggestions-box"></ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="page-header">
+        <h1>Physical & Mental Health</h1>
+        <p>Learn how to improve your body, mind, and overall well-being.</p>
+    </div>
+
+    <div class="container my-5">
+
+        <div id="healthContainer" class="row">
+
+            <!-- Obesity -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm health-card" data-name="Obesity">
+                    <img src="images/obesity.jpg" class="shift-down card-img-top" alt="Obesity">
+                    <div class="card-body">
+                        <h5 class="card-title">Obesity</h5>
+                        <p class="card-text">Excess body weight that can lead to health problems.</p>
+                        <button class="btn btn-primary" onclick="showHealthPopup('Obesity', `
+<b>What it is:</b> Obesity is a medical condition where excess body fat accumulates to the extent that it may negatively affect health.<br><br>
+<b>Causes:</b> Poor diet, lack of exercise, genetic factors, hormonal imbalances.<br><br>
+<b>Treatment:</b> Healthy diet, regular exercise, behavioral therapy, sometimes medication or surgery.<br><br>
+<b>Prevention:</b> Eat balanced meals, exercise regularly, avoid sugary/processed foods, maintain sleep and stress management.
+`)">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stress -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm health-card" data-name="Stress & Anxiety">
+                    <img src="images/stress.jpg" class="card-img-top" alt="Stress">
+                    <div class="card-body">
+                        <h5 class="card-title">Stress & Anxiety</h5>
+                        <p class="card-text">High stress levels affect both mental and physical health.</p>
+                        <button class="btn btn-primary" onclick="showHealthPopup('Stress & Anxiety', `
+<b>What it is:</b> Stress and anxiety are mental states of tension or worry that can affect emotional and physical well-being.<br><br>
+<b>Causes:</b> Work pressure, personal issues, financial problems, trauma.<br><br>
+<b>Treatment:</b> Therapy, mindfulness, meditation, breathing exercises, regular exercise, sometimes medication.<br><br>
+<b>Prevention:</b> Manage time effectively, maintain social support, practice relaxation techniques, exercise regularly.
+`)">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heart disease -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm health-card" data-name="Heart Disease">
+                    <img src="images/heart.png" class="card-img-top" alt="Heart Disease">
+                    <div class="card-body">
+                        <h5 class="card-title">Heart Disease</h5>
+                        <p class="card-text">Poor diet, lack of exercise, and stress contribute to heart problems.</p>
+                        <button class="btn btn-primary" onclick="showHealthPopup('Heart Disease', `
+<b>What it is:</b> Heart disease refers to various heart conditions that affect heart function, often leading to heart attacks or other complications.<br><br>
+<b>Causes:</b> High cholesterol, high blood pressure, smoking, obesity, poor diet, stress, genetics.<br><br>
+<b>Treatment:</b> Medication, lifestyle changes, surgery in severe cases, regular monitoring.<br><br>
+<b>Prevention:</b> Eat heart-healthy foods, exercise regularly, avoid smoking, control blood pressure and cholesterol.
+`)">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diabetes -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm health-card" data-name="Diabetes">
+                    <img src="images/diabetes.png" class="card-img-top" alt="Diabetes">
+                    <div class="card-body">
+                        <h5 class="card-title">Diabetes</h5>
+                        <p class="card-text">High blood sugar levels that require careful management.</p>
+                        <button class="btn btn-primary" onclick="showHealthPopup('Diabetes', `
+<b>What it is:</b> Diabetes is a chronic condition in which the body cannot properly produce or use insulin, resulting in high blood sugar levels.<br><br>
+<b>Causes:</b> Genetics, obesity, poor diet, sedentary lifestyle.<br><br>
+<b>Treatment:</b> Healthy diet, regular exercise, insulin therapy or oral medication, regular blood sugar monitoring.<br><br>
+<b>Prevention:</b> Maintain healthy weight, exercise regularly, avoid sugary foods, monitor blood sugar levels.
+`)">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Depression -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm health-card" data-name="Depression">
+                    <img src="images/depression.png" class="card-img-top" alt="Depression">
+                    <div class="card-body">
+                        <h5 class="card-title">Depression</h5>
+                        <p class="card-text">Mental health disorder affecting mood, energy, and daily life.</p>
+                        <button class="btn btn-primary" onclick="showHealthPopup('Depression', `
+<b>What it is:</b> Depression is a mood disorder that causes persistent feelings of sadness, hopelessness, and a loss of interest in daily activities.<br><br>
+<b>Causes:</b> Genetics, chemical imbalances, trauma, prolonged stress, life events.<br><br>
+<b>Treatment:</b> Therapy (CBT, counseling), medication (antidepressants), lifestyle changes, social support.<br><br>
+<b>Prevention:</b> Maintain social connections, practice stress management, exercise regularly, seek help early.
+`)">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insomnia -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm health-card" data-name="Insomnia">
+                    <img src="images/insomnia.avif" class="shift-up card-img-top" alt="Insomnia">
+                    <div class="card-body">
+                        <h5 class="card-title">Insomnia</h5>
+                        <p class="card-text">Difficulty falling asleep or staying asleep affects physical and mental
+                            health.</p>
+                        <button class="btn btn-primary" onclick="showHealthPopup('Insomnia', `
+<b>What it is:</b> Insomnia is a sleep disorder that makes it difficult to fall asleep, stay asleep, or get restful sleep.<br><br>
+<b>Causes:</b> Stress, anxiety, poor sleep environment, irregular sleep schedule, medical conditions, medications.<br><br>
+<b>Treatment:</b> Sleep hygiene, relaxation techniques, limiting caffeine, therapy, sometimes medication.<br><br>
+<b>Prevention:</b> Maintain consistent sleep schedule, avoid screens before bed, keep bedroom dark and cool, manage stress.
+`)">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="healthPopupOverlay" class="health-popup-overlay">
+    <div class="health-popup-box">
+        <button class="close-btn" onclick="closeHealthPopup()">&times;</button>
+        <h3 id="healthPopupTitle"></h3>
+        <p id="healthPopupText"></p>
+    </div>
+</div>
+
+
+</body>
+
+</html>

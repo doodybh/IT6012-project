@@ -1,0 +1,945 @@
+/* --------------------------- */
+/* GENERAL STYLES */
+/* --------------------------- */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #e9f5f9;
+    scroll-behavior: smooth;
+}
+
+/* --------------------------- */
+/* NAVBAR */
+/* --------------------------- */
+.navbar-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007b9e;
+    padding: 15px 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    color: white;
+}
+
+.nav-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.nav-title span {
+    margin-left: 15px;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+/* --- New Additions for Navbar Layout --- */
+.nav-right-group {
+    gap: 15px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --------------------------------------- */
+
+.nav-links button {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+.nav-links button:hover {
+    color: #d1f7ff;
+}
+
+.active {
+    font-weight: bold;
+    color: #d1f7ff;
+}
+
+/* --- New Additions for Search Bar --- */
+.search-wrapper {
+    position: relative;
+}
+
+#healthSearch {
+    width: 180px;
+}
+
+/* --------------------------- */
+/* CAROUSEL */
+/* --------------------------- */
+#mainCarousel {
+    height: 30vh;
+    overflow: hidden;
+}
+
+#mainCarousel img {
+    height: 30vh;
+    object-fit: cover;
+}
+
+.carousel-caption h5 {
+    background: rgba(0, 77, 102, 0.7);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+}
+
+/* --------------------------- */
+/* MODALS */
+/* --------------------------- */
+.modal-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-box {
+    background: #f0f9ff;
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-box input,
+.modal-box textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #007b9e;
+}
+
+.modal-box button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #007b9e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-box button:hover {
+    background-color: #004d66;
+}
+
+/* --------------------------- */
+/* PAGE HEADERS */
+/* --------------------------- */
+.page-header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f0f9ff;
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    color: #004d66;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: #007b9e;
+    font-size: 18px;
+}
+
+/* --------------------------- */
+/* DOCTOR CARDS (Book Appointments)*/
+/* --------------------------- */
+.container-fluid .card {
+    max-width: 900px;
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+.container-fluid .card:hover {
+    transform: scale(1.015);
+}
+
+.container-fluid .card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0;
+    transition: transform 0.3s;
+}
+
+
+.container-fluid .card .col-md-8 {
+    padding: 20px;
+}
+
+.container-fluid .card h3 {
+    font-size: 24px;
+    color: #004d66;
+    margin-bottom: 8px;
+}
+
+.container-fluid .card p {
+    font-size: 14px;
+    color: #007b9e;
+    margin-bottom: 6px;
+}
+
+.container-fluid .card button {
+    font-size: 14px;
+    padding: 8px 12px;
+}
+
+/* --------------------------- */
+/* INFO CARDS (Physical & Mental Health) */
+/* --------------------------- */
+.info-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+.info-card h3 {
+    color: #004d66;
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    color: #007b9e;
+    line-height: 1.6;
+}
+
+/* --------------------------- */
+/* POPUP OVERLAY */
+/* --------------------------- */
+#popupOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+#popupContent {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    text-align: left;
+    position: relative;
+}
+
+#popupContent button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#popupTitle {
+    color: #004d66;
+    margin-bottom: 15px;
+}
+
+#popupText {
+    color: #007b9e;
+    line-height: 1.6;
+}
+
+/* --------------------------- */
+/* CENTER SIGN-IN BUTTON */
+/* --------------------------- */
+.center-signin {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.signin-big-btn {
+    padding: 15px 35px;
+    background-color: #007b9e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.signin-big-btn:hover {
+    background-color: #004d66;
+    transform: scale(1.05);
+}
+
+/* --------------------------- */
+/* FLOATING ICONS */
+/* --------------------------- */
+.floating-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.floating-icons a {
+    width: 50px;
+    height: 50px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.floating-icons a:hover {
+    transform: scale(1.1);
+}
+
+.floating-icons a.email {
+    background-color: #007b9e;
+}
+
+/* --------------------------- */
+/* OVERVIEW SECTION - Modified Styles for Left Alignment and Headings */
+/* --------------------------- */
+#overview {
+    padding: 80px 20px;
+    margin-top: 0;
+}
+
+/* Ensure content inside the wrapper is left-aligned */
+.overview-content-wrapper {
+    text-align: left;
+}
+
+/* New style for section sub-headings */
+.overview-heading {
+    color: #007b9e;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+    border-left: 5px solid #004d66;
+    padding-left: 20px;
+    border-radius: 2px;
+}
+
+.overview-large-text {
+    color: #007b9e;
+    max-width: 100%;
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.8;
+}
+
+/* Custom styles for overview buttons */
+.custom-btn-primary {
+    background-color: #007b9e;
+    border-color: #007b9e;
+}
+
+.custom-btn-primary:hover {
+    background-color: #004d66;
+    border-color: #004d66;
+}
+
+.custom-btn-outline {
+    color: #007b9e;
+    border-color: #007b9e;
+}
+
+.custom-btn-outline:hover {
+    color: white;
+    background-color: #007b9e;
+}
+
+.bg-light-blue-custom {
+    background-color: #f0f9ff;
+}
+
+/* --------------------------- */
+/* TESTIMONIALS SECTION (Customer Reviews) */
+/* --------------------------- */
+.testimonial-card {
+    border: none;
+    border-radius: 15px;
+    background-color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.review-text {
+    font-style: italic;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed #e0f0f5;
+    padding-bottom: 15px;
+}
+
+.text-primary-custom {
+    color: #007b9e;
+}
+
+/* --------------------------- */
+/* ACHIEVEMENTS SECTION */
+/* --------------------------- */
+#achievements {
+    background-color: #e9f5f9;
+}
+
+.achievement-box {
+    border: 1px solid #e0f0f5;
+    transition: transform 0.3s, border-color 0.3s;
+    text-align: center;
+}
+
+.achievement-box:hover {
+    transform: translateY(-5px);
+    border-color: #007b9e;
+}
+
+.text-secondary-custom {
+    color: #555;
+}
+
+/* --------------------------- */
+/* MAP LOCATION */
+/* --------------------------- */
+.map-container {
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --------------------------- */
+/* SEARCH SUGGESTION BOX */
+/* --------------------------- */
+.suggestions-box {
+    position: absolute;
+    top: 36px;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #007b9e;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestions-box li {
+    padding: 10px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.suggestions-box li:hover {
+    background-color: #e6f7ff;
+}
+
+
+/* --------------------------- */
+/* MAKING OF PAGE STYLES */
+/* --------------------------- */
+
+/* Custom Title Styling */
+.section-title-custom {
+    color: #004d66;
+    border-bottom: 2px solid #007b9e;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Wireframes Gallery */
+.wireframe-gallery {
+    padding: 20px 0;
+}
+
+.wireframe-card {
+    border: 1px solid #e0f0f5;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.wireframe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px black;
+}
+
+.wireframe-card img {
+    height: 250px;
+    object-fit: contain;
+    padding: 15px;
+    background-color: #f8f9fa;
+}
+
+/* Justification Cards Styling */
+.justification-card {
+    border: none;
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.justification-card:hover {
+    transform: translateY(-3px);
+}
+
+.justification-card h3 {
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.justification-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.justification-card ul li {
+    margin-bottom: 10px;
+}
+
+.justification-card ul li p {
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Custom Primary Color */
+.text-primary-custom {
+    color: #007b9e;
+}
+
+/* NAVBAR USER GREETING STYLES */
+#userGreeting {
+    display: inline-block;
+    border-left: 3px solid whitesmoke;
+    padding-left: 15px;
+    margin-left: 15px;
+    font-weight: normal;
+    font-size: 18px;
+    color: #d1f7ff;
+}
+
+/* --------------------------- */
+/* PHYSICAL & MENTAL HEALTH CARDS */
+/* --------------------------- */
+.container .card-img-top {
+    height: 360px;
+    object-fit: cover;
+    width: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+
+/* --------------------------- */
+/* MOVING IMAGES AND ADJUSTING */
+/* --------------------------- */
+.shift-up {
+    object-position: center top;
+}
+
+.shift-down {
+    object-position: center bottom;
+}
+
+.image-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    cursor: pointer;
+}
+
+.image-viewer img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+
+.wireframe-card img {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.wireframe-card img:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Appointment Form Error Text */
+.error-box {
+    color: #dc3545; 
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+/* Doctor Cards in Home*/
+.doctor-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    background-color: #f0f9ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+}
+
+.doctor-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 4px solid #007b9e;
+}
+
+.doctor-card h5 {
+    color: #004d66;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.doctor-card p {
+    color: #007b9e;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.doctor-card button {
+    margin-top: auto;
+    background-color: #007b9e;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.doctor-card button:hover {
+    background-color: #004d66;
+}
+
+/* --------------------------- */
+/* MAKING OF PAGE IMAGE ADJUSTMENTS */
+/* --------------------------- */
+
+.making-of-page .wireframe-card img,
+.making-of-page .justification-card img,
+.making-of-page .info-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.making-of-page .wireframe-card,
+.making-of-page .justification-card {
+    overflow: hidden;
+}
+
+#cartContainer {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    z-index: 1500;
+}
+
+.cart-button {
+    position: relative;
+    background-color: #007b9e;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: background 0.3s;
+    margin-top: 20px;
+}
+
+.cart-button:hover { background-color: #004d66; }
+
+#cartCount {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #dc3545;
+    color: white;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-panel {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    width: 320px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    overflow-y: auto;
+    max-height: 400px;
+    display: none;
+    padding: 10px 15px;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.cart-panel.show {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#cartItems {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 10px;
+}
+
+#cartItems li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 5px;
+}
+
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-item-info img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.quantity-controls button {
+    padding: 2px 6px;
+    font-size: 14px;
+    border: 1px solid #007b9e;
+    background: #fff;
+    color: #007b9e;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.quantity-controls button:hover { background: #007b9e; color: #fff; }
+
+.cart-total {
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+/* --------------------------- */
+/* SUGGESTION BOX */
+/* --------------------------- */
+
+#medicineSuggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 0 0 8px 8px;
+}
+
+#medicineSuggestions li {
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #000; 
+}
+
+#medicineSuggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 180px;
+}
+
+.suggestions-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    background: white;
+    border: 1px solid #007b9e;
+    border-radius: 6px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 9999;
+    color:  black;
+}
+
+.suggestions-box li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.suggestions-box li:hover {
+    background-color: #e6f7ff;
+}
+
+.health-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: min-content;
+    gap: 1rem;
+}
+
+/* HEALTH POPUP */
+.health-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.health-popup-box {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.health-popup-box h3 {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.health-popup-box .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
