@@ -616,7 +616,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0, 0, 0, 0.85);
     display: none;
     justify-content: center;
     align-items: center;
@@ -628,7 +628,7 @@ body {
     max-width: 90%;
     max-height: 90%;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     cursor: zoom-in;
     transition: transform 0.3s ease;
 }
@@ -646,7 +646,7 @@ body {
 
 /* Appointment Form Error Text */
 .error-box {
-    color: #dc3545; 
+    color: #dc3545;
     font-size: 0.9rem;
     margin-top: 4px;
 }
@@ -741,12 +741,14 @@ body {
     border-radius: 50px;
     font-size: 20px;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: background 0.3s;
     margin-top: 20px;
 }
 
-.cart-button:hover { background-color: #004d66; }
+.cart-button:hover {
+    background-color: #004d66;
+}
 
 #cartCount {
     position: absolute;
@@ -772,20 +774,25 @@ body {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    overflow-y: auto;
-    max-height: 400px;
-    display: none;
-    padding: 10px 15px;
-    transform: translateY(-20px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
     opacity: 0;
-    transition: all 0.4s ease;
+    transform: translateY(-10px);
+    transition:
+        max-height 0.4s ease,
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        padding 0.3s ease;
 }
 
 .cart-panel.show {
+    max-height: 400px;
     display: block;
     transform: translateY(0);
     opacity: 1;
+    padding: 10px 15px;
 }
 
 #cartItems {
@@ -832,7 +839,10 @@ body {
     cursor: pointer;
 }
 
-.quantity-controls button:hover { background: #007b9e; color: #fff; }
+.quantity-controls button:hover {
+    background: #007b9e;
+    color: #fff;
+}
 
 .cart-total {
     padding-top: 8px;
@@ -859,14 +869,14 @@ body {
     background-color: #fff;
     max-height: 200px;
     overflow-y: auto;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 8px 8px;
 }
 
 #medicineSuggestions li {
     padding: 8px 12px;
     cursor: pointer;
-    color: #000; 
+    color: #000;
 }
 
 #medicineSuggestions li:hover {
@@ -890,7 +900,7 @@ body {
     max-height: 200px;
     overflow-y: auto;
     z-index: 9999;
-    color:  black;
+    color: black;
 }
 
 .suggestions-box li {
@@ -916,7 +926,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     display: none;
     justify-content: center;
     align-items: center;
@@ -929,7 +939,7 @@ body {
     max-width: 600px;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
     position: relative;
     animation: fadeIn 0.3s ease-in-out;
 }
@@ -950,6 +960,13 @@ body {
 }
 
 @keyframes fadeIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
