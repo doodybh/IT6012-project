@@ -22,38 +22,50 @@
 </head>
 
 <body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
 
-    <!-- NAVBAR -->
-    <div class="navbar-custom d-flex justify-content-between align-items-center">
-
-        <!-- LEFT: TITLE -->
+        <!-- TITLE -->
         <div class="nav-title">
             Health Portal <span id="userGreeting"></span>
         </div>
 
-        <!-- RIGHT: BUTTONS then SEARCH BAR -->
-        <div class="d-flex align-items-center" style="gap: 15px;">
+        <!-- Hamburger button (shows on small screens) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu2"
+            aria-controls="navbarMenu2" aria-expanded="false" aria-label="Toggle navigation"
+            style="border:none; color:white; font-size:24px;">
+            &#9776;
+        </button>
 
-            <!-- Buttons on the left -->
-            <div class="nav-links d-flex align-items-center" style="gap: 10px;">
-                <button onclick="location.href='index.html'">Home</button>
-                <button onclick="location.href='physical-mental-health.html'">Physical & Mental Health</button>
-                <button class="active">Book Appointments</button>
-                <button onclick="location.href='medicines.html'">Medicine</button>
-                <button onclick="location.href='our-story.html'">Our Story</button>
-                <button onclick="location.href='making-of.html'">Making of</button>
+        <!-- Collapsible menu -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMenu2">
+            <!-- Flex direction: vertical on small, horizontal on large -->
+            <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center" style="gap: 15px;">
+
+                <!-- Buttons -->
+                <div class="nav-links d-flex flex-column flex-lg-row align-items-start align-items-lg-center" style="gap: 10px;">
+                    <button onclick="location.href='index.html'">Home</button>
+                    <button onclick="location.href='physical-mental-health.html'">Physical & Mental Health</button>
+                    <button class="active">Book Appointments</button>
+                    <button onclick="location.href='medicines.html'">Medicine</button>
+                    <button onclick="location.href='our-story.html'">Our Story</button>
+                    <button onclick="location.href='making-of.html'">Making of</button>
+                </div>
+
+                <!-- Search bar -->
+                <div style="position: relative; margin-top: 10px; margin-left: 0;">
+                    <input type="text" id="doctorSearch" placeholder="Search Doctors..."
+                        class="form-control form-control-sm" style="width: 180px;">
+                    <ul id="doctorSuggestions" class="suggestions-box"></ul>
+                </div>
+
             </div>
-
-            <!-- Search bar on the right -->
-            <div style="position: relative;">
-                <input type="text" id="doctorSearch" placeholder="Search Doctors..."
-                    class="form-control form-control-sm" style="width: 180px;">
-                <ul id="doctorSuggestions" class="suggestions-box"></ul>
-            </div>
-
         </div>
 
     </div>
+</nav>
+
 
     <!-- HEADER -->
     <div class="page-header">
@@ -61,7 +73,7 @@
         <p>Choose a doctor from the list below to schedule your appointment.</p>
     </div>
 
-    <!-- DOCTOR CARDS -->
+    <!-- DOCTORS -->
     <div class="container-fluid px-0 my-5">
         <div class="row g-0">
 
@@ -76,7 +88,7 @@
                         <div class="col-md-8 p-4">
                             <h3>Dr. Jack Smith</h3>
                             <p><strong>Specialist:</strong> Cardiologist</p>
-                            <p><strong>Age:</strong> 45</p>
+                            <p><strong>Age:</strong> 35</p>
                             <p><strong>Hospital:</strong> City Heart Hospital</p>
                             <p><strong>Description:</strong> Specializes in heart health, cardiovascular diseases, and
                                 preventive care with 20 years of experience helping patients maintain heart health.</p>
@@ -98,7 +110,7 @@
                         <div class="col-md-8 p-4">
                             <h3>Dr. John Doe</h3>
                             <p><strong>Specialist:</strong> Psychiatrist</p>
-                            <p><strong>Age:</strong> 40</p>
+                            <p><strong>Age:</strong> 39</p>
                             <p><strong>Hospital:</strong> MindCare Clinic</p>
                             <p><strong>Description:</strong> Expert in mental health, stress management, and therapy
                                 with 25 years of experience helping patients achieve better mental well-being.</p>
@@ -130,6 +142,73 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Doctor 4 -->
+<div class="col-12">
+    <div class="card w-100 mb-4" data-name="Dr. Sarah Wilson">
+        <div class="row g-0 align-items-center">
+            <div class="col-md-4">
+                <img src="images/Doc4.png" class="img-fluid rounded-start" alt="Dr. Sarah"
+                    style="height:350px; object-fit:cover;">
+            </div>
+            <div class="col-md-8 p-4">
+                <h3>Dr. Michael Brown</h3>
+                <p><strong>Specialist:</strong> Pediatrician</p>
+                <p><strong>Age:</strong> 50</p>
+                <p><strong>Hospital:</strong> Children’s Care Hospital</p>
+                <p><strong>Description:</strong> Expert in child health, growth, vaccinations, 
+                    and long-term pediatric care with over 15 years of experience.</p>
+                <button class="btn btn-primary w-100" onclick="openAppointmentForm('Dr. Sarah Wilson')">Book
+                    Appointment</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Doctor 5 -->
+<div class="col-12">
+    <div class="card w-100 mb-4" data-name="Dr. Michael Brown">
+        <div class="row g-0 align-items-center">
+            <div class="col-md-4">
+                <img src="images/Doc5.png" class="img-fluid rounded-start" alt="Dr. Michael"
+                    style="height:350px; object-fit:cover;">
+            </div>
+            <div class="col-md-8 p-4">
+                <h3>Dr. Sarah Wilson </h3>
+                <p><strong>Specialist:</strong> Neurologist</p>
+                <p><strong>Age:</strong> 30</p>
+                <p><strong>Hospital:</strong> NeuroCare Institute</p>
+                <p><strong>Description:</strong> Specializes in brain & nervous system disorders,
+                    helping patients manage migraines, seizures, and neurological conditions.</p>
+                <button class="btn btn-primary w-100" onclick="openAppointmentForm('Dr. Michael Brown')">Book
+                    Appointment</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Doctor 6 -->
+<div class="col-12">
+    <div class="card w-100 mb-4" data-name="Dr. Emily Johnson">
+        <div class="row g-0 align-items-center">
+            <div class="col-md-4">
+                <img src="images/Doc6.png" class="img-fluid rounded-start" alt="Dr. Emily"
+                    style="height:350px; object-fit:cover;">
+            </div>
+            <div class="col-md-8 p-4">
+                <h3>Dr. Henry Johnson</h3>
+                <p><strong>Specialist:</strong> Dermatologist</p>
+                <p><strong>Age:</strong> 55</p>
+                <p><strong>Hospital:</strong> SkinCare Medical Center</p>
+                <p><strong>Description:</strong> Expert in skin health, acne treatment, and cosmetic dermatology, 
+                    providing modern solutions for all skin types.</p>
+                <button class="btn btn-primary w-100" onclick="openAppointmentForm('Dr. Emily Johnson')">Book
+                    Appointment</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
         </div>
     </div>

@@ -17,25 +17,37 @@
 
 <body>
 
-<div class="navbar-custom d-flex justify-content-between align-items-center">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
 
-    <div class="nav-title">
-        Health Portal <span id="userGreeting"></span>
-    </div>
-
-    <div class="d-flex align-items-center" style="gap: 15px;">
-
-        <div class="nav-links d-flex align-items-center" style="gap: 10px;">
-            <button onclick="location.href='index.html'">Home</button>
-            <button onclick="location.href='physical-mental-health.html'">Physical & Mental Health</button>
-            <button onclick="location.href='appointments.html'">Book Appointments</button> 
-            <button onclick="location.href='medicines.html'">Medicine</button>
-            <button class="active" onclick="location.href='our-story.html'">Our Story</button>
-            <button onclick="location.href='making-of.html'">Making of</button>
+        <!-- TITLE -->
+        <div class="nav-title">
+            Health Portal <span id="userGreeting"></span>
         </div>
-        
+
+        <!-- Hamburger button (only shows on small screens) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenuOurStory"
+            aria-controls="navbarMenuOurStory" aria-expanded="false" aria-label="Toggle navigation"
+            style="border:none; color:white; font-size:24px;">
+            &#9776;
+        </button>
+
+        <!-- Collapsible menu -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMenuOurStory">
+            <div class="nav-links d-flex flex-column flex-lg-row align-items-start align-items-lg-center" style="gap: 10px;">
+                <button onclick="location.href='index.html'">Home</button>
+                <button onclick="location.href='physical-mental-health.html'">Physical & Mental Health</button>
+                <button onclick="location.href='appointments.html'">Book Appointments</button> 
+                <button onclick="location.href='medicines.html'">Medicine</button>
+                <button class="active" onclick="location.href='our-story.html'">Our Story</button>
+                <button onclick="location.href='making-of.html'">Making of</button>
+            </div>
+        </div>
+
     </div>
-</div>
+</nav>
+
 
 
 <header class="page-header">
@@ -48,12 +60,46 @@
 
     <section class="mb-5 info-card">
         <h2 class="section-title overview-heading"><b>Overview</b></h2>
-        <p class="story-text">
-            This project marks an important milestone in our journey through the IT6012 course.
-            Working as a team of four, we collaborated to design and build a fully functional healthcare-themed website that demonstrates our skills in HTML, CSS, JavaScript, and Bootstrap. 
-            Throughout the development process, we frequently met and coordinated our work through Discord, which helped us stay organized and maintain smooth communication.
-            The purpose of this page is to reflect on our experience, highlight the challenges we encountered, and share what we learned along the way.
-        </p>
+       <p class="story-text">
+    This project marks an important milestone in our journey through the IT6012 course. Working as a team of four, we collaborated to design and build a fully functional healthcare-themed website that demonstrates our skills in HTML, CSS, JavaScript, and Bootstrap. Throughout the development process, we frequently met and coordinated our work through Discord, which helped us stay organized and maintain smooth communication. The purpose of this page is to reflect on our experience, highlight the challenges we encountered, and share what we learned along the way.
+
+    <br><br>
+
+    One of the key factors that contributed to the success of this project was the use of version control through Git and GitHub. By using GitHub repositories, we were able to efficiently manage our codebase and collaborate asynchronously. This tool allowed each team member to work on different parts of the website without conflict, enabling us to merge changes smoothly and maintain a clean project history. Branching and pull requests helped us review each other's code before integrating it, which improved code quality and encouraged best practices. GitHub also served as a backup for our work, ensuring that no progress was lost and making it easy to track issues and feature requests.
+
+    <br><br>
+
+    Our team began by brainstorming ideas for the website's layout and features, focusing on user experience and accessibility. We wanted to create a site that would be easy to navigate for a wide range of users, including those who might not be tech-savvy. We used wireframes and mockups to visualize our design concepts before diving into coding. This upfront planning made the actual implementation more efficient and helped us identify potential usability issues early.
+
+    <br><br>
+
+    During development, each member took responsibility for different components: one focused on the navigation bar and overall layout, another worked on the interactive forms and validation using JavaScript, while others handled styling with CSS and Bootstrap integration. This division of labor leveraged our individual strengths and ensured progress was steady. Regular check-ins on Discord allowed us to discuss challenges, share feedback, and make decisions collaboratively. This open communication was vital, especially when resolving bugs or making adjustments to the design.
+
+    <br><br>
+
+    A significant challenge we faced was ensuring that the website was responsive across various devices and screen sizes. With the wide use of mobile phones and tablets, it was crucial that our design adapt fluidly. We extensively used Bootstrap's grid system and utility classes to create a flexible layout, but fine-tuning was necessary to address edge cases. Testing on different browsers and devices helped us catch inconsistencies and improve compatibility.
+
+    <br><br>
+
+    Another technical challenge involved implementing JavaScript validation for forms. We wanted to provide users with real-time feedback to prevent submission errors and enhance user experience. Writing clean, efficient, and maintainable JavaScript code required multiple iterations and peer reviews. The process taught us valuable lessons about event handling, DOM manipulation, and error handling in client-side scripts.
+
+    <br><br>
+
+    Beyond the technical aspects, working as a team also strengthened our project management skills. We learned how to set realistic deadlines, prioritize tasks, and balance workload. Using GitHub Issues and project boards helped us keep track of progress and assign responsibilities clearly. This experience mimicked real-world software development workflows and prepared us for future collaborative projects.
+
+    <br><br>
+
+    In addition to the core development tasks, we invested time in researching best practices for web accessibility to ensure our site could be used by people with disabilities. This included adding semantic HTML elements, ensuring sufficient color contrast, and making sure the website could be navigated easily using a keyboard. These considerations improved the overall quality of the site and taught us the importance of inclusive design.
+
+    <br><br>
+
+    Furthermore, we paid attention to website performance by optimizing images and minimizing unnecessary code, which helped reduce load times and provided a smoother user experience. We also documented our code thoroughly, making it easier for anyone reviewing or maintaining the project in the future.
+
+    <br><br>
+
+    In summary, this project was much more than a coding exercise; it was a comprehensive learning journey that combined technical skills with teamwork, communication, and project organization. By the end, we not only created a functional and visually appealing healthcare website but also gained confidence in using essential development tools and methodologies. We look forward to applying these lessons in future projects and continuing to improve as developers.
+</p>
+
     </section>
 
 <hr>

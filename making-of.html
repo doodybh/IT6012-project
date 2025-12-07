@@ -16,15 +16,25 @@
 <body class="making-of-page">
 
 
-    <div class="navbar-custom d-flex justify-content-between align-items-center">
+   <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
 
+        <!-- TITLE -->
         <div class="nav-title">
             Health Portal <span id="userGreeting"></span>
         </div>
 
-        <div class="d-flex align-items-center nav-right-group">
+        <!-- Hamburger button (only shows on small screens) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu3"
+            aria-controls="navbarMenu3" aria-expanded="false" aria-label="Toggle navigation"
+            style="border:none; color:white; font-size:24px;">
+            &#9776;
+        </button>
 
-            <div class="nav-links d-flex align-items-center">
+        <!-- Collapsible menu -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMenu3">
+            <div class="nav-links d-flex flex-column flex-lg-row align-items-start align-items-lg-center" style="gap: 10px;">
                 <button onclick="location.href='index.html'">Home</button>
                 <button onclick="location.href='physical-mental-health.html'">Physical & Mental Health</button>
                 <button onclick="location.href='appointments.html'">Book Appointments</button>
@@ -32,10 +42,11 @@
                 <button onclick="location.href='our-story.html'">Our Story</button>
                 <button class="active" onclick="location.href='making-of.html'">Making of</button>
             </div>
-
         </div>
 
     </div>
+</nav>
+
 
     <header class="page-header">
         <h1>Project Documentation: The Making Of</h1>

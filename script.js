@@ -480,11 +480,7 @@ const checkoutButton = document.getElementById('checkoutButton');
 // ---------------------------
 // CART TOGGLE
 // ---------------------------
-
 document.addEventListener("DOMContentLoaded", () => {
-    const cartToggle = document.getElementById("cartToggle");
-    const cartPanel = document.getElementById("cartPanel");
-
     if (!cartToggle || !cartPanel) return;
 
     cartToggle.addEventListener('click', (e) => {
@@ -493,19 +489,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.addEventListener('click', (e) => {
-        if (!cartPanel.contains(e.target) && e.target !== cartToggle) {
+        const clickedInsideCart = cartPanel.contains(e.target);
+        const clickedToggleButton = cartToggle.contains(e.target);
+        const clickedAddButton = e.target.closest('.btn-primary'); // Add-to-Cart buttons outside
+        const clickedQtyInput = e.target.closest('.form-control'); // Quantity inputs outside
+        const clickedCartButton = e.target.closest('.cart-remove, .qty-plus, .qty-minus, .cart-qty-input');
+
+        // Only close if click is outside cart, toggle, Add-to-Cart buttons, quantity inputs, AND cart buttons
+        if (!clickedInsideCart && !clickedToggleButton && !clickedAddButton && !clickedQtyInput && !clickedCartButton) {
             cartPanel.classList.remove('show');
         }
     });
 });
-
 
 // ---------------------------
 // ADD TO CART
 // ---------------------------
 function addCardToCart(name, qtyInputId, imgSrc) {
     const qty = parseInt(document.getElementById(qtyInputId).value, 10) || 1;
-    const price = 10;
+
+    const card = [...document.querySelectorAll('.medicine-card')]
+        .find(c => c.dataset.name === name);
+
+    let price = 10;
+    if (card) price = parseFloat(card.dataset.price);
 
     const existingIndex = cart.findIndex(item => item.name === name);
     if (existingIndex !== -1) {
@@ -516,6 +523,9 @@ function addCardToCart(name, qtyInputId, imgSrc) {
 
     updateCartUI();
     showPopup("Added to Cart", `${qty} x ${name} added.`);
+
+    // Open cart automatically when adding items
+    if (!cartPanel.classList.contains('show')) cartPanel.classList.add('show');
 }
 
 // ---------------------------
@@ -530,17 +540,19 @@ function updateCartUI() {
         total += itemTotal;
 
         const li = document.createElement('li');
-        li.className = 'd-flex justify-content-between align-items-center mb-2';
+        li.className = 'd-flex justify-content-between align-items-center mb-2 flex-wrap';
 
         li.innerHTML = `
-            <div class="d-flex align-items-center gap-2">
-                <img src="${item.img}" alt="${item.name}" style="width:40px;height:40px;object-fit:cover;">
+            <div class="cart-item-info">
+                <img src="${item.img}" alt="${item.name}">
                 <span>${item.name}</span>
             </div>
-            <div class="d-flex align-items-center gap-2">
+            <div class="quantity-controls">
+                <button class="qty-minus" data-index="${index}">-</button>
                 <input type="number" class="cart-qty-input form-control form-control-sm" 
                     data-index="${index}" value="${item.qty}" min="1" style="width:60px;">
-                <span>$${itemTotal.toFixed(2)}</span>
+                <button class="qty-plus" data-index="${index}">+</button>
+                <span>${itemTotal.toFixed(3)} BHD</span>
                 <button class="btn btn-sm btn-danger cart-remove" data-index="${index}">
                     <i class="fas fa-trash"></i>
                 </button>
@@ -549,36 +561,45 @@ function updateCartUI() {
         cartItemsEl.appendChild(li);
     });
 
-    cartTotalEl.innerText = total.toFixed(2);
+    cartTotalEl.innerText = total.toFixed(3) + ' BHD';
     cartCountEl.innerText = cart.reduce((sum, item) => sum + item.qty, 0);
 
-    // ---------------------------
-    // EVENT LISTENERS
-    // ---------------------------
-    cartItemsEl.querySelectorAll('.cart-remove').forEach(btn => {
+    // Event listeners inside cart
+    cartItemsEl.querySelectorAll('.cart-remove, .qty-plus, .qty-minus').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.stopPropagation();
+            e.stopPropagation(); // prevent cart from closing
+
             const i = parseInt(btn.dataset.index);
-            cart.splice(i, 1);
+
+            if (btn.classList.contains('cart-remove')) {
+                cart.splice(i, 1);
+            } else if (btn.classList.contains('qty-plus')) {
+                cart[i].qty++;
+            } else if (btn.classList.contains('qty-minus')) {
+                if (cart[i].qty > 1) cart[i].qty--;
+            }
+
             updateCartUI();
         });
     });
 
+    // Quantity input inside cart
     cartItemsEl.querySelectorAll('.cart-qty-input').forEach(input => {
-        input.addEventListener('blur', () => {
-            const i = parseInt(input.dataset.index);
-            let val = parseInt(input.value);
-            if (isNaN(val) || val < 1) val = 1;
-            cart[i].qty = val;
-            updateCartUI();
-        });
+        const i = parseInt(input.dataset.index);
 
-        input.addEventListener('blur', () => {
-            const i = parseInt(input.dataset.index);
+        const updateQty = () => {
             let val = parseInt(input.value);
             if (isNaN(val) || val < 1) val = 1;
             cart[i].qty = val;
             updateCartUI();
+        };
+
+        input.addEventListener('blur', updateQty);
+        input.addEventListener('keydown', (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                updateQty();
+            }
         });
     });
 }
@@ -634,7 +655,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <input type="text" id="prescription" class="form-control" placeholder="Enter prescription info">
                     <div class="error-box"></div>
                 </div>
-                <h6>Total: $<span id="checkoutTotal">0.00</span></h6>
+                <h6>Total: <span id="checkoutTotal">0.000 BHD</span></h6>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -665,10 +686,10 @@ document.addEventListener("DOMContentLoaded", () => {
             li.className = 'list-group-item d-flex justify-content-between';
             const itemTotal = item.price * item.qty;
             total += itemTotal;
-            li.innerHTML = `${item.name} x ${item.qty} <span>$${itemTotal.toFixed(2)}</span>`;
+            li.innerHTML = `${item.name} x ${item.qty} <span>${itemTotal.toFixed(3)} BHD</span>`;
             checkoutItemsEl.appendChild(li);
         });
-        document.getElementById('checkoutTotal').innerText = total.toFixed(2);
+        document.getElementById('checkoutTotal').innerText = total.toFixed(3) + ' BHD';
 
         document.getElementById('patientName').value = localStorage.getItem('username') || '';
 
@@ -727,7 +748,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 purchases.push({
                     medicineName: item.name,
                     qty: item.qty,
-                    total: (item.price * item.qty).toFixed(2),
+                    total: (item.price * item.qty).toFixed(3),
                     name,
                     cpr,
                     address,
@@ -746,6 +767,33 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { once: true });
     }
 });
+
+
+// ---------------------------
+// SIMPLE POPUP FUNCTION
+// ---------------------------
+function showPopup(title, message) {
+    // Create popup container
+    const popup = document.createElement('div');
+    popup.style.position = 'fixed';
+    popup.style.bottom = '20px';
+    popup.style.right = '20px';
+    popup.style.backgroundColor = '#28a745';
+    popup.style.color = 'white';
+    popup.style.padding = '15px 25px';
+    popup.style.borderRadius = '5px';
+    popup.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
+    popup.style.zIndex = 1055;
+    popup.style.fontWeight = 'bold';
+    popup.style.minWidth = '200px';
+    popup.innerText = `${title}: ${message}`;
+
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+        popup.remove();
+    }, 3500);
+}
 
 
 // ---------------------------
@@ -1063,7 +1111,7 @@ function showPopup(title, message) {
     popup.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
     popup.style.opacity = '0';
     popup.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    popup.style.pointerEvents = 'auto';
+    popup.style.pointerEvents = 'none';
 
     popup.innerHTML = `<strong>${title}</strong><br>${message}`;
 
@@ -1096,10 +1144,11 @@ if (!popupContainer) {
     popupContainer.id = 'popupContainer';
     popupContainer.style.position = 'fixed';
     popupContainer.style.bottom = '20px';
-    popupContainer.style.right = '20px';
+    popupContainer.style.left = '20px';
     popupContainer.style.display = 'flex';
-    popupContainer.style.flexDirection = 'column-reverse'
+    popupContainer.style.flexDirection = 'column-reverse';
     popupContainer.style.gap = '10px';
     popupContainer.style.zIndex = '9999';
+    popupContainer.style.pointerEvents = 'none';
     document.body.appendChild(popupContainer);
 }

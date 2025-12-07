@@ -17,32 +17,49 @@
 
 <body>
 
-    <div class="navbar-custom d-flex justify-content-between align-items-center">
+    <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
 
+        <!-- TITLE -->
         <div class="nav-title">
             Health Portal <span id="userGreeting"></span>
         </div>
 
-        <div class="d-flex align-items-center nav-right-group">
+        <!-- Hamburger button (shows only on small screens) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu6"
+            aria-controls="navbarMenu6" aria-expanded="false" aria-label="Toggle navigation"
+            style="border:none; color:white; font-size:24px;">
+            &#9776;
+        </button>
 
-            <div class="nav-links d-flex align-items-center">
-                <button onclick="location.href='index.html'">Home</button>
-                <button class="active">Physical & Mental Health</button>
-                <button onclick="location.href='appointments.html'">Book Appointments</button>
-                <button onclick="location.href='medicines.html'">Medicine</button>
-                <button onclick="location.href='our-story.html'">Our Story</button>
-                <button onclick="location.href='making-of.html'">Making of</button>
+        <!-- Collapsible menu -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMenu6">
+            <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center" style="gap: 15px;">
+
+                <!-- Buttons -->
+                <div class="nav-links d-flex flex-column flex-lg-row align-items-start align-items-lg-center" style="gap: 10px;">
+                    <button onclick="location.href='index.html'">Home</button>
+                    <button class="active">Physical & Mental Health</button>
+                    <button onclick="location.href='appointments.html'">Book Appointments</button>
+                    <button onclick="location.href='medicines.html'">Medicine</button>
+                    <button onclick="location.href='our-story.html'">Our Story</button>
+                    <button onclick="location.href='making-of.html'">Making of</button>
+                </div>
+
+                <!-- Search bar -->
+                <div class="search-wrapper" style="margin-top:10px; margin-left:0;">
+                    <input type="text" id="healthSearch" placeholder="Search Health Problems..."
+                        class="form-control form-control-sm">
+                    <ul id="searchSuggestions" class="suggestions-box"></ul>
+                </div>
+
             </div>
-
-            <div class="search-wrapper">
-                <input type="text" id="healthSearch" placeholder="Search Health Problems..."
-                    class="form-control form-control-sm">
-                <ul id="searchSuggestions" class="suggestions-box"></ul>
-            </div>
-
         </div>
 
     </div>
+</nav>
+
 
     <div class="page-header">
         <h1>Physical & Mental Health</h1>

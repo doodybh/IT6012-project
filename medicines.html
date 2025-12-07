@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Medicines - Health Portal</title>
 
 <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- FontAwesome -->
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
 <!-- External CSS -->
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css" />
 <!-- External JS -->
 <script defer src="script.js"></script>
 
@@ -22,38 +22,53 @@
 <body>
 
 <!-- NAVBAR -->
-<div class="navbar-custom d-flex justify-content-between align-items-center">
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
 
-    <!-- LEFT: TITLE -->
-    <div class="nav-title">
-        Health Portal <span id="userGreeting"></span>
-    </div>
-
-    <!-- RIGHT: BUTTONS then SEARCH BAR -->
-    <div class="d-flex align-items-center" style="gap: 15px;">
-
-        <!-- Buttons on the left -->
-        <div class="nav-links d-flex align-items-center" style="gap: 10px;">
-            <button onclick="location.href='index.html'">Home</button>
-            <button onclick="location.href='physical-mental-health.html'">Physical & Mental Health</button>
-            <button onclick="location.href='appointments.html'">Book Appointments</button>
-            <button class="active">Medicine</button>
-            <button onclick="location.href='our-story.html'">Our Story</button>
-            <button onclick="location.href='making-of.html'">Making of</button>
+        <!-- TITLE -->
+        <div class="nav-title">
+            Health Portal <span id="userGreeting"></span>
         </div>
 
-        <!-- Search bar on the right -->
-        <div style="position: relative;">
-            <input type="text" id="medicineSearch"
-                   placeholder="Search medicine..."
-                   class="form-control form-control-sm"
-                   style="width: 180px;">
-            <ul id="medicineSuggestions" class="suggestions-box"></ul>
+        <!-- Hamburger button (shows on small screens) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenuMedicines"
+            aria-controls="navbarMenuMedicines" aria-expanded="false" aria-label="Toggle navigation"
+            style="border:none; color:white; font-size:24px;">
+            &#9776;
+        </button>
+
+        <!-- Collapsible menu -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMenuMedicines">
+            <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center" style="gap: 15px;">
+
+                <!-- Buttons -->
+                <div class="nav-links d-flex flex-column flex-lg-row align-items-start align-items-lg-center" style="gap: 10px;">
+                    <button onclick="location.href='index.html'">Home</button>
+                    <button onclick="location.href='physical-mental-health.html'">Physical & Mental Health</button>
+                    <button onclick="location.href='appointments.html'">Book Appointments</button>
+                    <button class="active">Medicine</button>
+                    <button onclick="location.href='our-story.html'">Our Story</button>
+                    <button onclick="location.href='making-of.html'">Making of</button>
+                </div>
+
+                <!-- Search bar -->
+                <div style="position: relative; margin-top:10px; margin-left:0;">
+                    <input
+                        type="text"
+                        id="medicineSearch"
+                        placeholder="Search medicine..."
+                        class="form-control form-control-sm"
+                        style="width: 180px;"
+                    />
+                    <ul id="medicineSuggestions" class="suggestions-box"></ul>
+                </div>
+
+            </div>
         </div>
 
     </div>
+</nav>
 
-</div>
 
 <!-- DROPDOWN CART -->
 <div id="cartContainer">
@@ -68,7 +83,7 @@
             <!-- Items dynamically added here -->
         </ul>
         <div class="cart-total">
-            <strong>Total: $<span id="cartTotal">0.00</span></strong>
+            <strong>Total: <span id="cartTotal">0.000 BHD</span></strong>
         </div>
         <button id="checkoutButton" class="btn btn-success w-100">Checkout</button>
     </div>
@@ -86,63 +101,225 @@
 
         <!-- Card 1: Panadol Extra -->
         <div class="col-md-4">
-            <div class="card medicine-card h-100 shadow-sm" data-name="Panadol Extra">
-                <img src="images/panadol.jpg" class="card-img-top" alt="Panadol Extra">
+            <div class="card medicine-card h-100 shadow-sm" data-name="Panadol Extra" data-price="2.5">
+                <img src="images/panadol.jpg" class="card-img-top" alt="Panadol Extra" />
                 <div class="card-body">
                     <h5 class="card-title">Panadol Extra</h5>
                     <p><strong>Treats:</strong> Headache, fever, muscle pain.</p>
                     <p><strong>Description:</strong> A fast-acting pain reliever for mild to moderate pain.</p>
+                    <p><strong>Price:</strong> 2.500 BHD</p>
 
-                    <!-- Quantity input -->
                     <div class="mb-2">
                         <label for="qtyPanadolExtra">Quantity:</label>
-                        <input type="number" id="qtyPanadolExtra" class="form-control" value="1" min="1" style="width:80px;">
+                        <input type="number" id="qtyPanadolExtra" class="form-control" value="1" min="1" style="width: 80px;" />
                     </div>
 
-                    <!-- Add to Cart button -->
-                    <button class="btn btn-primary" onclick="addCardToCart('Panadol Extra', 'qtyPanadolExtra', 'images/panadol.jpg')">Add to Cart</button>
+                    <button
+                        class="btn btn-primary"
+                        onclick="addCardToCart('Panadol Extra', 'qtyPanadolExtra', 'images/panadol.jpg')"
+                    >
+                        Add to Cart
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Card 2: Augmentin 625mg -->
         <div class="col-md-4">
-            <div class="card medicine-card h-100 shadow-sm" data-name="Augmentin 625mg">
-                <img src="images/augmentin.jpg" class="card-img-top" alt="Augmentin 625mg">
+            <div class="card medicine-card h-100 shadow-sm" data-name="Augmentin 625mg" data-price="5.0">
+                <img src="images/augmentin.jpg" class="card-img-top" alt="Augmentin 625mg" />
                 <div class="card-body">
                     <h5 class="card-title">Augmentin 625mg</h5>
                     <p><strong>Treats:</strong> Infections, sinusitis, pneumonia, UTIs.</p>
                     <p><strong>Description:</strong> A powerful antibiotic requiring a prescription.</p>
+                    <p><strong>Price:</strong> 5.000 BHD</p>
 
-                    <!-- Quantity input -->
                     <div class="mb-2">
                         <label for="qtyAugmentin">Quantity:</label>
-                        <input type="number" id="qtyAugmentin" class="form-control" value="1" min="1" style="width:80px;">
+                        <input type="number" id="qtyAugmentin" class="form-control" value="1" min="1" style="width: 80px;" />
                     </div>
 
-                    <!-- Add to Cart button -->
-                    <button class="btn btn-primary" onclick="addCardToCart('Augmentin 625mg', 'qtyAugmentin', 'images/augmentin.jpg')">Add to Cart</button>
+                    <button
+                        class="btn btn-primary"
+                        onclick="addCardToCart('Augmentin 625mg', 'qtyAugmentin', 'images/augmentin.jpg')"
+                    >
+                        Add to Cart
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Card 3: Claritin -->
         <div class="col-md-4">
-            <div class="card medicine-card h-100 shadow-sm" data-name="Claritin">
-                <img src="images/claritin.avif" class="card-img-top" alt="Claritin">
+            <div class="card medicine-card h-100 shadow-sm" data-name="Claritin" data-price="3.0">
+                <img src="images/claritin.avif" class="card-img-top" alt="Claritin" />
                 <div class="card-body">
                     <h5 class="card-title">Claritin</h5>
                     <p><strong>Treats:</strong> Allergies, sneezing, itchy eyes.</p>
                     <p><strong>Description:</strong> A non-drowsy antihistamine offering 24-hour allergy relief.</p>
+                    <p><strong>Price:</strong> 3.000 BHD</p>
 
-                    <!-- Quantity input -->
                     <div class="mb-2">
                         <label for="qtyClaritin">Quantity:</label>
-                        <input type="number" id="qtyClaritin" class="form-control" value="1" min="1" style="width:80px;">
+                        <input type="number" id="qtyClaritin" class="form-control" value="1" min="1" style="width: 80px;" />
                     </div>
 
-                    <!-- Add to Cart button -->
-                    <button class="btn btn-primary" onclick="addCardToCart('Claritin', 'qtyClaritin', 'images/claritin.avif')">Add to Cart</button>
+                    <button
+                        class="btn btn-primary"
+                        onclick="addCardToCart('Claritin', 'qtyClaritin', 'images/claritin.avif')"
+                    >
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: Prospan Cough Syrup -->
+        <div class="col-md-4">
+            <div class="card medicine-card h-100 shadow-sm" data-name="Prospan Cough Syrup" data-price="4.2">
+                <img src="images/Med4.png" class="card-img-top" alt="Prospan Cough Syrup" />
+                <div class="card-body">
+                    <h5 class="card-title">Prospan Cough Syrup</h5>
+                    <p><strong>Treats:</strong> Cough, throat irritation, chest congestion.</p>
+                    <p><strong>Description:</strong> Herbal syrup that helps relieve cough and improve breathing comfort.</p>
+                    <p><strong>Price:</strong> 4.200 BHD</p>
+
+                    <div class="mb-2">
+                        <label for="qtyProspan">Quantity:</label>
+                        <input type="number" id="qtyProspan" class="form-control" value="1" min="1" style="width: 80px;" />
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="addCardToCart('Prospan Cough Syrup', 'qtyProspan', 'images/Med4.png')"
+                    >
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5: TYLENOL Cold & Flu Severe -->
+        <div class="col-md-4">
+            <div class="card medicine-card h-100 shadow-sm" data-name="TYLENOL Cold & Flu Severe" data-price="3.5">
+                <img src="images/Med5.png" class="card-img-top" alt="TYLENOL Cold & Flu Severe" />
+                <div class="card-body">
+                    <h5 class="card-title">TYLENOL® Cold & Flu Severe</h5>
+                    <p><strong>Treats:</strong> Cold symptoms, fever, nasal congestion, body aches.</p>
+                    <p><strong>Description:</strong> Helps reduce discomfort from cold & flu symptoms and provides relief for congestion.</p>
+                    <p><strong>Price:</strong> 3.500 BHD</p>
+
+                    <div class="mb-2">
+                        <label for="qtyTylenolColdFlu">Quantity:</label>
+                        <input type="number" id="qtyTylenolColdFlu" class="form-control" value="1" min="1" style="width: 80px;" />
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="addCardToCart('TYLENOL Cold & Flu Severe', 'qtyTylenolColdFlu', 'images/Med5.png')"
+                    >
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6: IMODIUM Multi-Symptom Relief -->
+        <div class="col-md-4">
+            <div class="card medicine-card h-100 shadow-sm" data-name="IMODIUM Multi-Symptom Relief" data-price="2.8">
+                <img src="images/Med6.png" class="card-img-top" alt="IMODIUM Multi-Symptom Relief" />
+                <div class="card-body">
+                    <h5 class="card-title">IMODIUM® Multi-Symptom Relief</h5>
+                    <p><strong>Treats:</strong> Diarrhea, gas, cramps, bloating.</p>
+                    <p><strong>Description:</strong> Provides fast relief for multiple digestive symptoms to restore comfort.</p>
+                    <p><strong>Price:</strong> 2.800 BHD</p>
+
+                    <div class="mb-2">
+                        <label for="qtyImodium">Quantity:</label>
+                        <input type="number" id="qtyImodium" class="form-control" value="1" min="1" style="width: 80px;" />
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="addCardToCart('IMODIUM Multi-Symptom Relief', 'qtyImodium', 'images/Med6.png')"
+                    >
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 7: URIC ACID TABLETS -->
+        <div class="col-md-4">
+            <div class="card medicine-card h-100 shadow-sm" data-name="URIC ACID TABLETS" data-price="6.0">
+                <img src="images/Med7.png" class="card-img-top" alt="URIC ACID TABLETS" />
+                <div class="card-body">
+                    <h5 class="card-title">URIC ACID TABLETS</h5>
+                    <p><strong>Treats:</strong> High uric acid levels, gout symptoms.</p>
+                    <p><strong>Description:</strong> Helps reduce uric acid concentration and relieve associated discomfort.</p>
+                    <p><strong>Price:</strong> 6.000 BHD</p>
+
+                    <div class="mb-2">
+                        <label for="qtyUricAcid">Quantity:</label>
+                        <input type="number" id="qtyUricAcid" class="form-control" value="1" min="1" style="width: 80px;" />
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="addCardToCart('URIC ACID TABLETS', 'qtyUricAcid', 'images/Med7.png')"
+                    >
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 8: Norvasc High Blood Pressure -->
+        <div class="col-md-4">
+            <div class="card medicine-card h-100 shadow-sm" data-name="Norvasc High Blood Pressure" data-price="7.0">
+                <img src="images/Med8.png" class="card-img-top" alt="Norvasc High Blood Pressure" />
+                <div class="card-body">
+                    <h5 class="card-title">Norvasc High Blood Pressure</h5>
+                    <p><strong>Treats:</strong> High blood pressure, hypertension.</p>
+                    <p><strong>Description:</strong> Helps to lower blood pressure and reduce the risk of cardiovascular problems.</p>
+                    <p><strong>Price:</strong> 7.000 BHD</p>
+
+                    <div class="mb-2">
+                        <label for="qtyNorvasc">Quantity:</label>
+                        <input type="number" id="qtyNorvasc" class="form-control" value="1" min="1" style="width: 80px;" />
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="addCardToCart('Norvasc High Blood Pressure', 'qtyNorvasc', 'images/Med8.png')"
+                    >
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 9: Oral Eze Toothache -->
+        <div class="col-md-4">
+            <div class="card medicine-card h-100 shadow-sm" data-name="Oral Eze Toothache" data-price="2.7">
+                <img src="images/Med9.png" class="card-img-top" alt="Oral Eze Toothache" />
+                <div class="card-body">
+                    <h5 class="card-title">Oral Eze Toothache</h5>
+                    <p><strong>Treats:</strong> Toothache, dental pain relief.</p>
+                    <p><strong>Description:</strong> Provides fast-acting relief from tooth pain and discomfort.</p>
+                    <p><strong>Price:</strong> 2.700 BHD</p>
+
+                    <div class="mb-2">
+                        <label for="qtyOralEze">Quantity:</label>
+                        <input type="number" id="qtyOralEze" class="form-control" value="1" min="1" style="width: 80px;" />
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="addCardToCart('Oral Eze Toothache', 'qtyOralEze', 'images/Med9.png')"
+                    >
+                        Add to Cart
+                    </button>
                 </div>
             </div>
         </div>
